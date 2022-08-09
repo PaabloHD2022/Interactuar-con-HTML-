@@ -4,9 +4,9 @@ let nuevoProducto = new Array();
 
 let alerts = document.getElementById("alerts"); // Alerta por cargar mal o no cargar un dato.
 let prodCtn = document.getElementById("prodCtn"); // Ventana donde aparece el nuevo producto cargado con sus datos y foto.
-let nuevo_prod = document.getElementById("nuevo_prod"); // Boton para cargar datos.
+let btnNuevoProd = document.getElementById("btnNuevoProd"); // Boton para cargar datos.
 
-nuevo_prod.addEventListener("click", ()=>{ //Se pasan dos parametros, el evento y que quiero hacer cuando aprieto el boton que en este caso es validar los datos y generar el nuevo producto con la funcion.
+btnNuevoProd.addEventListener("click", ()=>{ //Se pasan dos parametros, el evento y que quiero hacer cuando aprieto el boton que en este caso es validar los datos y generar el nuevo producto con la funcion.
 
     if (validar_datos()){ //Funcion validar datos sirve para validar la info ingresada por el usuario. Esta creada mas abajo.
 
@@ -21,11 +21,11 @@ function validar_datos(){
 
     alerts.innerHTML = ""; // Resetea los alertas que le damos al usuario cuando no carga como corresponde la info para que no se acumulen en la pagina los alertas de los datos corregidos.
 
-    let input_codProd = (document.getElementById("codProd").value);
+    let input_codProd = document.getElementById("codProd").value;
     let input_item = document.getElementById("item").value;
     let input_descripcion = document.getElementById("descripcion").value;
-    let input_cant_min = document.getElementById("cant_min").value;
-    let input_precio = (document.getElementById("precio").value);
+    let input_cantMin = document.getElementById("cantMin").value;
+    let input_precio = document.getElementById("precio").value;
     let input_imgProd = document.getElementById("imgProd").value;
 
     let alerts_mensajes = new Array();
@@ -39,7 +39,7 @@ function validar_datos(){
         
         case "input_item":
             input_item ="";
-            alerts_mensajes.push("ingrese una item");
+            alerts_mensajes.push("ingrese un item");
             break;
 
         case "input_descripcion":
@@ -47,8 +47,8 @@ function validar_datos(){
             alerts_mensajes.push("Inrese una descripcion del producto a ingresar");
             break;
 
-        case "input_cant_min":
-            input_cant_min < 0 || isNaN || !input_cant_min;
+        case "input_cantMin":
+            input_cantMin < 0 || isNaN || !input_cantMin;
             alerts_mensajes.push("Ingrese cantidad de venta minima de este producto");
             break;
 
@@ -95,14 +95,14 @@ function crearProducto(){
     let codProd = document.getElementById("codProd").value;
     let item = document.getElementById("item").value;
     let descripcion = document.getElementById("descripcion").value;
-    let cant_min = document.getElementById("cant_min").value;
+    let cantMin = document.getElementById("cantMin").value;
     let precio = document.getElementById("precio").value;
     let imgProd = document.getElementById("imgProd").value;
 
-    let producto = new producto(codProd, item, descripcion, cant_min, precio, imgProd);
+    let producto = new producto(codProd, item, descripcion, cantMin, precio, imgProd);
 
     nuevoProducto.push(producto);
-
+    console.log(producto);
     generar_nuevo_producto(producto);
 
 }
