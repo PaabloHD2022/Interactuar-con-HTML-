@@ -6,7 +6,7 @@
 
 
 body{
-    background-color: rgb(175, 214, 214);
+    background-color: rgb(43, 125, 139);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -21,7 +21,7 @@ body{
 #prodCtn{
     width: 100%;
     display: grid;
-    grid-template-columns: (3, 1fr);
+    grid-template-rows: (1fr, 1fr, 1fr);
 }
 
 #prodCtn div{
@@ -33,7 +33,7 @@ body{
     padding: auto;
 }
 
-#prodCtn div img{
+#prodCtn div > img{
     width: 100px;
 }
 

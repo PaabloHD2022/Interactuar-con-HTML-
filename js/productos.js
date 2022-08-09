@@ -1,7 +1,7 @@
 /**
  * Clase que modela la informacion de un producto.
  */
-class Productos{    
+class Producto{    
 
     constructor (codProd, item, descripcion, cant_min, precio, imgProd){
 
@@ -11,7 +11,7 @@ class Productos{
         this.cant_min = cant_min;
         this.precio = precio;
         this.imgProd = imgProd;
-        this.productoAct = "Activado";
+        this.productoActiv = "Activado";
     }
 
     /**
@@ -20,7 +20,7 @@ class Productos{
      */
     getEstadoProd(){
 
-        return this.productoAct;
+        return this.productoActiv;
     }
     /**
      * funcion para setear un nuevo estado
@@ -28,6 +28,6 @@ class Productos{
      */
     setEstadoProd(nuevo_estado){
         
-        this.estado = nuevo_estado;
+        this.productoActiv = nuevo_estado;
     }
 }

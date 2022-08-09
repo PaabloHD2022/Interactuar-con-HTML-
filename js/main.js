@@ -1,32 +1,36 @@
-let productos = new Array();
+//Generamos arreglo vacio para guardar los datos.
 
-let alerts = document.getElementById("alerts");
-let prodCtn = document.getElementById("prodCtn");
-let btn_crear_prod = document.getElementById("btn_crear_prod");
+let nuevoProducto = new Array();
 
-btn_crear_prod.addEventListener("click",()=>{
+let alerts = document.getElementById("alerts"); // Alerta por cargar mal o no cargar un dato.
+let prodCtn = document.getElementById("prodCtn"); // Ventana donde aparece el nuevo producto cargado con sus datos y foto.
+let nuevo_prod = document.getElementById("nuevo_prod"); // Boton para cargar datos.
 
-    if (validar_datos_formulario()){
+nuevo_prod.addEventListener("click", ()=>{ //Se pasan dos parametros, el evento y que quiero hacer cuando aprieto el boton que en este caso es validar los datos y generar el nuevo producto con la funcion.
 
-        crearProducto();
+    if (validar_datos()){ //Funcion validar datos sirve para validar la info ingresada por el usuario. Esta creada mas abajo.
+
+        crearProducto(); //Si los datos son validos se genera un nuevo producto que se guardan en generar producto nuevo.
 
     }   
 });
 
-function validar_datos_formulario(){
+// Llamamos a validar los datos del formulario.
 
-    alerts.innerHTML = "";
+function validar_datos(){
 
-    let input_codProd = (document.getElementById("codProd").value).parseInt;
+    alerts.innerHTML = ""; // Resetea los alertas que le damos al usuario cuando no carga como corresponde la info para que no se acumulen en la pagina los alertas de los datos corregidos.
+
+    let input_codProd = (document.getElementById("codProd").value);
     let input_item = document.getElementById("item").value;
     let input_descripcion = document.getElementById("descripcion").value;
     let input_cant_min = document.getElementById("cant_min").value;
-    let input_precio = (document.getElementById("precio").value).parseInt;
+    let input_precio = (document.getElementById("precio").value);
     let input_imgProd = document.getElementById("imgProd").value;
 
     let alerts_mensajes = new Array();
     
-    switch(validadacion()){
+    switch(validar_datos){
 
         case "input_codProd":
             input_codProd < 0 || isNaN || !input_codProd;
@@ -95,30 +99,30 @@ function crearProducto(){
     let precio = document.getElementById("precio").value;
     let imgProd = document.getElementById("imgProd").value;
 
-    let productos = new productos(codProd, item, descripcion, cant_min, precio, imgProd);
+    let producto = new producto(codProd, item, descripcion, cant_min, precio, imgProd);
 
-    productos.push(productos);
+    nuevoProducto.push(producto);
 
-    generar_producto_cargado(productos);
+    generar_nuevo_producto(producto);
 
 }
 
-function generar_producto_cargado(productos){
+function generar_nuevo_producto(producto){
 
     let new_div = document.createElement("div")
     let new_h2 = document.createElement("h2");
-    new_div.id ="div"+ productos.nombre + productos.foto; 
-    new_h2.textContent = productos.nombre;
+    new_div.id ="div"+ producto.nombre + producto.imgProd; 
+    new_h2.textContent = producto.nombre;
 
     let new_img = document.createElement("img");
-    new_img.src = productos.foto;
+    new_img.src = producto.imgProd;
 
-    new_div.appendChild(new_h3);
+    new_div.appendChild(new_h2);
     new_div.appendChild(new_img);
 
-    let estado = document.createElement("h4");
-    estado.textContent = productos.estado;
-    new_div.appendChild(estado);
+    let productoActiv = document.createElement("h4");
+    productoActiv.textContent = producto.productoActiv;
+    new_div.appendChild(productoActiv);
 
     let contenedor = document.getElementById("prodCtn");
 
@@ -137,3 +141,5 @@ function resetear_form(){
     document.getElementById("precio").value = "";
     document.getElementById("imgProd").value = "";
 }
+
+
