@@ -106,13 +106,12 @@ function validar_datos(){
 
     alerts.appendChild(lista_errores);
     
-        return false;
-        
+        return false;        
 
-    }else{
+    } else {
 
         return true;
-        }
+    }
 }
 
 function crear_li(mensaje){
@@ -143,7 +142,7 @@ function generar_nuevo_producto(producto){
 
     let new_div = document.createElement("div")
     let new_h2 = document.createElement("h2");
-    new_div.id ="div"+ producto.item + producto.imgProd; 
+    new_div.id ="div"+ producto.item + producto.imgProd + producto.descripcion; 
     new_h2.textContent = producto.item;
 
     let new_img = document.createElement("img");
