@@ -29,39 +29,71 @@ function validar_datos(){
     let input_imgProd = document.getElementById("imgProd").value;
 
     let alerts_mensajes = new Array();
+
+    if (input_codProd < 0 || input_codProd == isNaN || !input_codProd){
+
+        alerts_mensajes.push("Ingrese un codigo de producto");
+    }
+
+    if(input_item =""){
+
+        alerts_mensajes.push("ingrese un item");
+    }
+
+    if (input_descripcion =""){
+
+        alerts_mensajes.push("ingrese un item");
+    }
+
+    if (input_cantMin < 0 || input_cantMin == isNaN || !input_cantMin){
+
+        alerts_mensajes.push("Ingrese cantidad de venta minima de este producto");
+    }
+
+    if ( input_precio < 0 || input_precio == isNaN || !input_precio){
+
+        alerts_mensajes.push("Ingrese precio del producto");
+    }
+
+    if (input_imgProd =""){
+
+        alerts_mensajes.push("Ingrese la foto del producto");
+    }
+
+
     
-    switch(validar_datos){
+    /* switch(validar_datos){
 
         case "input_codProd":
             input_codProd < 0 || isNaN || !input_codProd;
             alerts_mensajes.push("Ingrese un codigo de producto");
-            break;
+            
         
         case "input_item":
             input_item ="";
             alerts_mensajes.push("ingrese un item");
-            break;
+            
 
         case "input_descripcion":
             input_descripcion ="";
             alerts_mensajes.push("Inrese una descripcion del producto a ingresar");
-            break;
+            
 
         case "input_cantMin":
             input_cantMin < 0 || isNaN || !input_cantMin;
             alerts_mensajes.push("Ingrese cantidad de venta minima de este producto");
-            break;
+            
 
         case "input_precio":
             input_precio < 0 || isNaN || !input_precio;
             alerts_mensajes.push("Ingrese precio del producto");
-            break;
+            
 
         case "input_imgProd":
             input_imgProd ="";
             alerts_mensajes.push("Ingrese la foto del producto");
-            break;
-    }
+            
+    } */
 
     if (alerts_mensajes.length > 0){
 
@@ -80,7 +112,7 @@ function validar_datos(){
     }else{
 
         return true;
-    }
+        }
 }
 
 function crear_li(mensaje){
@@ -99,10 +131,10 @@ function crearProducto(){
     let precio = document.getElementById("precio").value;
     let imgProd = document.getElementById("imgProd").value;
 
-    let producto = new producto(codProd, item, descripcion, cantMin, precio, imgProd);
+    let producto = new Producto(codProd, item, descripcion, cantMin, precio, imgProd);
 
     nuevoProducto.push(producto);
-    console.log(producto);
+    
     generar_nuevo_producto(producto);
 
 }
@@ -111,8 +143,8 @@ function generar_nuevo_producto(producto){
 
     let new_div = document.createElement("div")
     let new_h2 = document.createElement("h2");
-    new_div.id ="div"+ producto.nombre + producto.imgProd; 
-    new_h2.textContent = producto.nombre;
+    new_div.id ="div"+ producto.item + producto.imgProd; 
+    new_h2.textContent = producto.item;
 
     let new_img = document.createElement("img");
     new_img.src = producto.imgProd;
@@ -120,9 +152,9 @@ function generar_nuevo_producto(producto){
     new_div.appendChild(new_h2);
     new_div.appendChild(new_img);
 
-    let productoActiv = document.createElement("h4");
-    productoActiv.textContent = producto.productoActiv;
-    new_div.appendChild(productoActiv);
+    let prodActiv = document.createElement("h4");
+    prodActiv.textContent = producto.prodActiv;
+    new_div.appendChild(prodActiv);
 
     let contenedor = document.getElementById("prodCtn");
 
@@ -137,7 +169,7 @@ function resetear_form(){
     document.getElementById("codProd").value = "";
     document.getElementById("item").value = "";
     document.getElementById("descripcion").value = "";
-    document.getElementById("cant_min").value = "";    
+    document.getElementById("cantMin").value = "";    
     document.getElementById("precio").value = "";
     document.getElementById("imgProd").value = "";
 }

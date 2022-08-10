@@ -3,15 +3,15 @@
  */
 class Producto{    
 
-    constructor (codProd, item, descripcion, cant_min, precio, imgProd){
+    constructor (codProd, item, descripcion, cantMin, precio, imgProd, prodActiv){
 
-        this.id = codProd ;
+        this.codProd = codProd ;
         this.item = item;
         this.descripcion = descripcion;
-        this.cant_min = cant_min;
+        this.cantMin = cantMin;
         this.precio = precio;
         this.imgProd = imgProd;
-        this.productoActiv = "Activado";
+        this.prodActiv = prodActiv;
     }
 
     /**
@@ -20,7 +20,7 @@ class Producto{
      */
     getEstadoProd(){
 
-        return this.productoActiv;
+        return this.prodActiv;
     }
     /**
      * funcion para setear un nuevo estado
@@ -28,6 +28,6 @@ class Producto{
      */
     setEstadoProd(nuevo_estado){
         
-        this.productoActiv = nuevo_estado;
+        this.prodActiv = nuevo_estado;
     }
 }
